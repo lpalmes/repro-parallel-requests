@@ -3,13 +3,12 @@ const baseApi = "https://api.sampleapis.com/wines/reds"
 
 
 export async function fetchWine(id: number) {
-	"use cache: remote"
-
 	return (await fetch(`${baseApi}/${id}`)).json()
 }
 
 export async function fetchWineUseCacheRemote(id: number) {
-	return (await fetch(`${baseApi}/${id}`)).json()
+	"use cache: remote"
+	return fetchWine(id)
 }
 
 
